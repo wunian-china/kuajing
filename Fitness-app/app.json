@@ -1,0 +1,45 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/checkin/checkin",
+    "pages/team/team",
+    "pages/profile/profile",
+    "pages/calendar/calendar"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#22C55E",
+    "navigationBarTitleText": "一起健身",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F4F6F8",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#9AA0A6",
+    "selectedColor": "#22C55E",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "打卡",
+        "iconPath": "images/tab-checkin.png",
+        "selectedIconPath": "images/tab-checkin-active.png"
+      },
+      {
+        "pagePath": "pages/team/team",
+        "text": "好友",
+        "iconPath": "images/tab-team.png",
+        "selectedIconPath": "images/tab-team-active.png"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "text": "我的",
+        "iconPath": "images/tab-profile.png",
+        "selectedIconPath": "images/tab-profile-active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

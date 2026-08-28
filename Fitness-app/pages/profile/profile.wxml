@@ -1,0 +1,87 @@
+<view class="container">
+
+  <!-- 个人卡片 -->
+  <view class="profile-card">
+    <view class="avatar-lg">{{user.avatarText}}</view>
+    <view class="profile-info flex1">
+      <input
+        class="nickname-input"
+        value="{{user.nickname}}"
+        maxlength="12"
+        bindinput="onNickname"
+        bindblur="saveNickname"
+      />
+      <view class="slogan text-light">每天进步一点点 💪</view>
+    </view>
+  </view>
+
+  <!-- 统计 -->
+  <view class="stats card">
+    <view class="stat">
+      <view class="stat-num">{{stats.totalDays}}</view>
+      <view class="stat-label">累计打卡(天)</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat">
+      <view class="stat-num">{{stats.streak}}</view>
+      <view class="stat-label">连续(天)</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat">
+      <view class="stat-num">{{stats.totalMinutes}}</view>
+      <view class="stat-label">累计时长(分)</view>
+    </view>
+  </view>
+
+  <!-- 功能入口 -->
+  <view class="card menu-card">
+    <view class="menu-item" bindtap="goCalendar">
+      <view class="menu-icon">📅</view>
+      <view class="menu-text flex1">运动历史日历</view>
+      <view class="menu-arrow text-light">›</view>
+    </view>
+  </view>
+
+  <!-- 每日目标 -->
+  <view class="card">
+    <view class="goal-head">
+      <view class="section-title">每日目标</view>
+      <view class="goal-value">{{goal}} 分钟</view>
+    </view>
+    <slider
+      min="10"
+      max="120"
+      step="5"
+      value="{{goal}}"
+      activeColor="#22C55E"
+      blockColor="#22C55E"
+      blockSize="24"
+      bindchange="saveGoal"
+      bindchanging="onGoal"
+    />
+    <view class="text-light">设置每天想坚持运动的时长</view>
+  </view>
+
+  <!-- 历史记录 -->
+  <view class="section-title">全部记录（{{records.length}}）</view>
+  <view class="card" wx:if="{{records.length}}">
+    <view class="record" wx:for="{{records}}" wx:key="id">
+      <view class="record-icon">{{item.icon}}</view>
+      <view class="record-info flex1">
+        <view class="record-name">{{item.name}}</view>
+        <view class="record-note text-sub">{{item.date}}<text wx:if="{{item.note}}"> · {{item.note}}</text></view>
+      </view>
+      <view class="record-min">{{item.duration}} 分</view>
+    </view>
+  </view>
+
+  <view class="empty card" wx:else>
+    <view class="empty-icon">📝</view>
+    <view class="text-sub">还没有打卡记录</view>
+  </view>
+
+  <button class="clear-btn" bindtap="clearData">清除全部记录</button>
+
+  <view class="about text-light">一起健身 v1.0 · 和朋友一起坚持</view>
+
+</view>

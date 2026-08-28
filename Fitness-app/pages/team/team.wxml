@@ -1,0 +1,81 @@
+<view class="container">
+
+  <!-- 空状态：尚未加入战队 -->
+  <block wx:if="{{!hasTeam && !loading}}">
+    <view class="card empty-team">
+      <view class="empty-team-icon">👥</view>
+      <view class="empty-team-title">还没有加入战队</view>
+      <view class="empty-team-sub">创建自己的战队，或输入好友的邀请码加入，一起打卡互相监督</view>
+      <button class="btn-primary empty-team-btn" bindtap="createTeam">创建战队</button>
+      <button class="btn-ghost empty-team-btn" bindtap="showJoin">输入邀请码加入</button>
+    </view>
+  </block>
+
+  <!-- 已加入战队 -->
+  <block wx:else>
+    <!-- 队伍横幅 -->
+    <view class="team-banner">
+      <view class="team-name">{{team.name}}</view>
+      <view class="team-sub">和好友一起，坚持更容易</view>
+      <view class="team-today">
+        今日已有 <text class="hl">{{checkedCount}}/{{total}}</text> 人打卡
+      </view>
+    </view>
+
+    <!-- 邀请与加入 -->
+    <view class="card invite-card">
+      <view class="invite-code-row">
+        <view>
+          <view class="invite-label">队伍邀请码</view>
+          <view class="invite-code">{{team.code}}</view>
+        </view>
+        <view class="invite-actions">
+          <button class="mini-btn ghost" size="mini" bindtap="copyCode">复制</button>
+          <button class="mini-btn ghost" size="mini" bindtap="refreshCode">换一个</button>
+        </view>
+      </view>
+      <view class="invite-btns">
+        <button class="btn-primary flex1" open-type="share">邀请好友</button>
+        <button class="btn-ghost flex1" bindtap="showJoin">输入码加入</button>
+      </view>
+    </view>
+
+    <!-- 成员打卡 -->
+    <view class="section-title">成员打卡排行</view>
+    <view class="card">
+      <view class="member" wx:for="{{members}}" wx:key="id">
+        <view class="member-avatar {{item.checked ? 'done' : ''}}">{{item.avatarText}}</view>
+        <view class="member-info flex1">
+          <view class="member-name">{{item.name}}<text wx:if="{{item.isMe}}" class="me-tag">我</text></view>
+          <view class="member-sub text-sub">🔥 连续 {{item.streak}} 天</view>
+        </view>
+        <view class="member-right">
+          <view class="member-min">{{item.checked ? item.minutes + ' 分' : '未打卡'}}</view>
+          <view class="member-status {{item.checked ? 'ok' : 'no'}}">{{item.checked ? '已打卡' : '待打卡'}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="tip text-light">好友通过你分享的卡片或输入邀请码即可加入队伍，打卡状态实时同步</view>
+  </block>
+
+  <!-- 加入弹窗 -->
+  <view class="mask" wx:if="{{showJoin}}" bindtap="hideJoin">
+    <view class="dialog" catchtap="noop">
+      <view class="dialog-title">输入邀请码</view>
+      <input
+        class="join-input"
+        type="number"
+        maxlength="6"
+        placeholder="6 位邀请码"
+        value="{{joinCode}}"
+        bindinput="onJoinCode"
+      />
+      <view class="dialog-btns">
+        <button class="btn-ghost flex1" bindtap="hideJoin">取消</button>
+        <button class="btn-primary flex1" bindtap="confirmJoin">加入</button>
+      </view>
+    </view>
+  </view>
+
+</view>
