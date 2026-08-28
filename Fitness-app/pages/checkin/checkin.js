@@ -1,4 +1,5 @@
 const store = require('../../utils/store');
+const api = require('../../utils/api');
 
 Page({
   data: {
@@ -27,7 +28,7 @@ Page({
     this.setData({ note: e.detail.value });
   },
 
-  submit() {
+  async submit() {
     const { selected, duration, note } = this.data;
     if (!selected) {
       wx.showToast({ title: '请选择运动类型', icon: 'none' });
@@ -38,15 +39,21 @@ Page({
       wx.showToast({ title: '时长需大于 0', icon: 'none' });
       return;
     }
-    store.addRecord({
-      date: store.today(),
-      type: selected,
-      duration: m,
-      note: note.trim()
-    });
-    wx.showToast({ title: '打卡成功', icon: 'success' });
-    setTimeout(() => {
-      wx.navigateBack();
-    }, 600);
+    wx.showLoading({ title: '打卡中' });
+    try {
+      await api.addRecord({
+        type: selected,
+        duration: m,
+        note: note.trim()
+      });
+      wx.hideLoading();
+      wx.showToast({ title: '打卡成功', icon: 'success' });
+      setTimeout(() => {
+        wx.navigateBack();
+      }, 600);
+    } catch (e) {
+      wx.hideLoading();
+      wx.showToast({ title: e.message || '打卡失败', icon: 'none' });
+    }
   }
 });
