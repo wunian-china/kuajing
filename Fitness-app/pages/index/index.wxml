@@ -56,7 +56,10 @@
   </view>
 
   <!-- 本周打卡 -->
-  <view class="section-title">本周打卡</view>
+  <view class="section-head">
+    <view class="section-title">本周打卡</view>
+    <view class="calendar-link" bindtap="goCalendar">历史日历 ›</view>
+  </view>
   <view class="card week-card">
     <view class="week-row">
       <view class="week-day" wx:for="{{week}}" wx:key="date">

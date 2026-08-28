@@ -71,6 +71,10 @@ Page({
     }
   },
 
+  goCalendar() {
+    wx.navigateTo({ url: '/pages/calendar/calendar' });
+  },
+
   clearData() {
     wx.showModal({
       title: '清除记录',

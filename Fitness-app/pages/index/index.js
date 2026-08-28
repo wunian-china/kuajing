@@ -73,6 +73,10 @@ Page({
     wx.navigateTo({ url: '/pages/checkin/checkin' });
   },
 
+  goCalendar() {
+    wx.navigateTo({ url: '/pages/calendar/calendar' });
+  },
+
   quickCheckin(e) {
     const type = e.currentTarget.dataset.type;
     wx.navigateTo({ url: '/pages/checkin/checkin?type=' + type });

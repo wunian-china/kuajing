@@ -129,6 +129,23 @@
   margin: 28rpx 4rpx 18rpx;
 }
 
+.section-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 28rpx 4rpx 18rpx;
+}
+
+.section-head .section-title {
+  margin: 0;
+}
+
+.calendar-link {
+  font-size: 26rpx;
+  color: #22C55E;
+  font-weight: 600;
+}
+
 .type-grid {
   display: flex;
   flex-wrap: wrap;

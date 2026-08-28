@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/checkin/checkin",
     "pages/team/team",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/calendar/calendar"
   ],
   "window": {
     "navigationBarBackgroundColor": "#22C55E",

@@ -33,6 +33,15 @@
     </view>
   </view>
 
+  <!-- 功能入口 -->
+  <view class="card menu-card">
+    <view class="menu-item" bindtap="goCalendar">
+      <view class="menu-icon">📅</view>
+      <view class="menu-text flex1">运动历史日历</view>
+      <view class="menu-arrow text-light">›</view>
+    </view>
+  </view>
+
   <!-- 每日目标 -->
   <view class="card">
     <view class="goal-head">

@@ -1,0 +1,69 @@
+<view class="container">
+
+  <!-- 月份导航 -->
+  <view class="card cal-header">
+    <view class="nav-btn" bindtap="prevMonth">‹</view>
+    <view class="cal-title">{{title}}</view>
+    <view class="nav-btn {{canNext ? '' : 'disabled'}}" bindtap="nextMonth">›</view>
+  </view>
+
+  <!-- 月度统计 -->
+  <view class="stats card">
+    <view class="stat">
+      <view class="stat-num">{{monthDays}}</view>
+      <view class="stat-label">本月打卡(天)</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat">
+      <view class="stat-num">{{monthMinutes}}</view>
+      <view class="stat-label">本月时长(分)</view>
+    </view>
+  </view>
+
+  <!-- 月历网格 -->
+  <view class="card">
+    <view class="week-head">
+      <view class="week-label" wx:for="{{weekLabels}}" wx:key="*this">{{item}}</view>
+    </view>
+    <view class="cal-grid">
+      <view
+        class="cal-cell"
+        wx:for="{{cells}}"
+        wx:key="date"
+        data-date="{{item.date}}"
+        bindtap="onTapDate"
+      >
+        <view
+          class="cal-day {{item.inMonth ? '' : 'out'}} {{item.checked ? 'checked' : ''}} {{item.isToday ? 'today' : ''}} {{item.date === selectedDate ? 'selected' : ''}}"
+        >
+          {{item.day}}
+        </view>
+        <view class="cal-min {{item.checked ? 'on' : ''}}">{{item.checked ? item.minutes + '分' : ''}}</view>
+      </view>
+    </view>
+    <view class="legend">
+      <view class="legend-item"><view class="legend-dot checked"></view>已打卡</view>
+      <view class="legend-item"><view class="legend-dot today"></view>今天</view>
+      <view class="legend-item"><view class="legend-dot selected"></view>选中</view>
+    </view>
+  </view>
+
+  <!-- 选中日期记录 -->
+  <view class="section-title">{{selectedDateText}} 的记录</view>
+  <view class="card" wx:if="{{selectedRecords.length}}">
+    <view class="record" wx:for="{{selectedRecords}}" wx:key="id">
+      <view class="record-icon">{{item.icon}}</view>
+      <view class="record-info flex1">
+        <view class="record-name">{{item.name}}<text wx:if="{{item.time}}" class="record-time text-light"> {{item.time}}</text></view>
+        <view class="record-note text-sub" wx:if="{{item.note}}">{{item.note}}</view>
+      </view>
+      <view class="record-min">{{item.duration}} 分</view>
+    </view>
+  </view>
+
+  <view class="card empty" wx:else>
+    <view class="empty-icon">🗓️</view>
+    <view class="text-sub">这天没有运动记录</view>
+  </view>
+
+</view>

@@ -68,6 +68,31 @@
   background: #EEF0F2;
 }
 
+/* 功能入口 */
+.menu-card {
+  padding: 8rpx 28rpx;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 24rpx 0;
+}
+
+.menu-icon {
+  font-size: 40rpx;
+  margin-right: 20rpx;
+}
+
+.menu-text {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.menu-arrow {
+  font-size: 36rpx;
+}
+
 /* 目标 */
 .goal-head {
   display: flex;
