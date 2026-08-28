@@ -2,7 +2,7 @@
 const store = require('./store');
 
 // 云环境 ID：留空时使用当前账号默认环境；正式项目请替换为你自己的环境 ID。
-const ENV_ID = '';
+const ENV_ID = '100052341346';
 
 let _today = '';
 let loginPromise = null;
