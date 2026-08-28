@@ -1,0 +1,246 @@
+.hero {
+  background: linear-gradient(135deg, #22C55E 0%, #0EA5E9 100%);
+  border-radius: 28rpx;
+  padding: 32rpx;
+  color: #fff;
+  margin-bottom: 24rpx;
+  box-shadow: 0 12rpx 32rpx rgba(34, 197, 94, 0.28);
+}
+
+.hero-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30rpx;
+}
+
+.hero-greet {
+  font-size: 36rpx;
+  font-weight: 700;
+}
+
+.hero-date {
+  font-size: 26rpx;
+  opacity: 0.9;
+  margin-top: 6rpx;
+}
+
+.avatar {
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  font-weight: 700;
+}
+
+.today-panel {
+  text-align: center;
+}
+
+.today-num {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.today-min {
+  font-size: 88rpx;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.today-unit {
+  font-size: 28rpx;
+  margin-left: 10rpx;
+  opacity: 0.9;
+}
+
+.today-label {
+  font-size: 26rpx;
+  opacity: 0.9;
+  margin-top: 6rpx;
+}
+
+.progress-track {
+  margin-top: 24rpx;
+  height: 16rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.3);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999rpx;
+  background: #fff;
+  transition: width 0.4s ease;
+}
+
+.progress-tip {
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  opacity: 0.9;
+}
+
+.hero-btn {
+  margin-top: 30rpx;
+  background: #fff !important;
+  color: #16A34A !important;
+  font-weight: 700;
+}
+
+/* 统计 */
+.stats {
+  display: flex;
+  align-items: center;
+}
+
+.stat {
+  flex: 1;
+  text-align: center;
+}
+
+.stat-num {
+  font-size: 44rpx;
+  font-weight: 800;
+  color: #22C55E;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #9AA0A6;
+  margin-top: 6rpx;
+}
+
+.stat-divider {
+  width: 2rpx;
+  height: 56rpx;
+  background: #EEF0F2;
+}
+
+/* 快捷打卡 */
+.section-title {
+  font-size: 30rpx;
+  font-weight: 700;
+  margin: 28rpx 4rpx 18rpx;
+}
+
+.type-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.type-item {
+  width: 31%;
+  background: #fff;
+  border-radius: 20rpx;
+  padding: 26rpx 0;
+  text-align: center;
+  margin-bottom: 18rpx;
+  box-shadow: 0 6rpx 20rpx rgba(17, 24, 39, 0.05);
+}
+
+.type-icon {
+  font-size: 56rpx;
+}
+
+.type-name {
+  font-size: 26rpx;
+  color: #374151;
+  margin-top: 8rpx;
+}
+
+/* 周历 */
+.week-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.week-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.week-label {
+  font-size: 24rpx;
+  color: #9AA0A6;
+  margin-bottom: 12rpx;
+}
+
+.day-circle {
+  width: 64rpx;
+  height: 64rpx;
+  border-radius: 50%;
+  background: #F1F5F9;
+  color: #6B7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.day-circle.checked {
+  background: #22C55E;
+  color: #fff;
+}
+
+.day-circle.today {
+  box-shadow: 0 0 0 4rpx #BBF7D0;
+}
+
+/* 最近记录 */
+.recent-item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #F3F4F6;
+}
+
+.recent-item:last-child {
+  border-bottom: none;
+}
+
+.recent-icon {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+  background: #F0FDF4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 44rpx;
+  margin-right: 20rpx;
+}
+
+.recent-name {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.recent-note {
+  font-size: 24rpx;
+  margin-top: 4rpx;
+}
+
+.recent-min {
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #22C55E;
+}
+
+.empty {
+  text-align: center;
+  padding: 60rpx 0;
+}
+
+.empty-icon {
+  font-size: 80rpx;
+  margin-bottom: 16rpx;
+}

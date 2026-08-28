@@ -1,0 +1,89 @@
+<view class="container">
+
+  <!-- 顶部问候 -->
+  <view class="hero">
+    <view class="hero-top">
+      <view>
+        <view class="hero-greet">{{greet}}，{{user.nickname}}</view>
+        <view class="hero-date">{{dateText}}</view>
+      </view>
+      <view class="avatar">{{user.avatarText}}</view>
+    </view>
+
+    <!-- 今日进度 -->
+    <view class="today-panel">
+      <view class="today-num">
+        <text class="today-min">{{todayMinutes}}</text>
+        <text class="today-unit">分钟</text>
+      </view>
+      <view class="today-label">今日已运动</view>
+      <view class="progress-track">
+        <view class="progress-fill" style="width: {{progress}}%;"></view>
+      </view>
+      <view class="progress-tip">
+        {{checkedToday ? '已完成今日目标' : '每日目标 ' + goal + ' 分钟，继续加油'}}
+      </view>
+    </view>
+
+    <button class="btn-primary hero-btn" bindtap="goCheckin">立即打卡</button>
+  </view>
+
+  <!-- 数据统计 -->
+  <view class="stats card">
+    <view class="stat">
+      <view class="stat-num">{{stats.streak}}</view>
+      <view class="stat-label">连续打卡(天)</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat">
+      <view class="stat-num">{{stats.totalDays}}</view>
+      <view class="stat-label">累计天数</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat">
+      <view class="stat-num">{{stats.totalMinutes}}</view>
+      <view class="stat-label">累计时长(分)</view>
+    </view>
+  </view>
+
+  <!-- 快捷打卡 -->
+  <view class="section-title">快捷打卡</view>
+  <view class="type-grid">
+    <view class="type-item" wx:for="{{types}}" wx:key="id" data-type="{{item.id}}" bindtap="quickCheckin">
+      <view class="type-icon">{{item.icon}}</view>
+      <view class="type-name">{{item.name}}</view>
+    </view>
+  </view>
+
+  <!-- 本周打卡 -->
+  <view class="section-title">本周打卡</view>
+  <view class="card week-card">
+    <view class="week-row">
+      <view class="week-day" wx:for="{{week}}" wx:key="date">
+        <view class="week-label">{{item.label}}</view>
+        <view class="day-circle {{item.checked ? 'checked' : ''}} {{item.isToday ? 'today' : ''}}">
+          {{item.day}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 最近记录 -->
+  <view class="section-title">最近记录</view>
+  <view class="card recent-card" wx:if="{{recent.length}}">
+    <view class="recent-item" wx:for="{{recent}}" wx:key="id">
+      <view class="recent-icon">{{item.icon}}</view>
+      <view class="recent-info flex1">
+        <view class="recent-name">{{item.name}}</view>
+        <view class="recent-note text-sub">{{item.date}}</view>
+      </view>
+      <view class="recent-min">{{item.duration}} 分钟</view>
+    </view>
+  </view>
+
+  <view class="empty card" wx:else>
+    <view class="empty-icon">💪</view>
+    <view class="text-sub">还没有记录，点上方「立即打卡」开始吧</view>
+  </view>
+
+</view>

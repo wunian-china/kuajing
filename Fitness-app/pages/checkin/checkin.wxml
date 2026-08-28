@@ -1,0 +1,51 @@
+<view class="container">
+
+  <view class="card">
+    <view class="section-title">选择运动类型</view>
+    <view class="type-grid">
+      <view
+        class="type-item {{selected === item.id ? 'active' : ''}}"
+        wx:for="{{types}}"
+        wx:key="id"
+        data-type="{{item.id}}"
+        bindtap="selectType"
+      >
+        <view class="type-icon">{{item.icon}}</view>
+        <view class="type-name">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="section-title">运动时长</view>
+    <view class="duration-row">
+      <text class="duration-num">{{duration}}</text>
+      <text class="duration-unit">分钟</text>
+    </view>
+    <slider
+      min="1"
+      max="120"
+      step="1"
+      value="{{duration}}"
+      activeColor="#22C55E"
+      blockColor="#22C55E"
+      blockSize="24"
+      bindchange="onDuration"
+      bindchanging="onDuration"
+    />
+  </view>
+
+  <view class="card">
+    <view class="section-title">备注（可选）</view>
+    <textarea
+      class="note-input"
+      placeholder="记录一下今天的训练感受…"
+      value="{{note}}"
+      maxlength="100"
+      bindinput="onNote"
+    />
+  </view>
+
+  <button class="btn-primary submit-btn" bindtap="submit">完成打卡</button>
+
+</view>

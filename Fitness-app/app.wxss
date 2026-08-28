@@ -1,0 +1,84 @@
+page {
+  --primary: #22C55E;
+  --primary-dark: #16A34A;
+  --accent: #0EA5E9;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+  --text: #1F2937;
+  --text-sub: #6B7280;
+  --text-light: #9AA0A6;
+  --bg: #F4F6F8;
+  --card: #FFFFFF;
+  --radius: 20rpx;
+  background-color: var(--bg);
+  color: var(--text);
+  font-size: 28rpx;
+  line-height: 1.5;
+  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+.container {
+  padding: 24rpx 24rpx 48rpx;
+}
+
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 28rpx;
+  box-shadow: 0 6rpx 24rpx rgba(17, 24, 39, 0.06);
+  margin-bottom: 24rpx;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #22C55E 0%, #16A34A 100%);
+  color: #fff;
+  border-radius: 999rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-primary::after {
+  border: none;
+}
+
+.btn-ghost {
+  background: #fff;
+  color: var(--primary);
+  border: 2rpx solid var(--primary);
+  border-radius: 999rpx;
+  font-size: 28rpx;
+  font-weight: 600;
+}
+
+.btn-ghost::after {
+  border: none;
+}
+
+.text-sub {
+  color: var(--text-sub);
+}
+
+.text-light {
+  color: var(--text-light);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex1 {
+  flex: 1;
+}
+
+.gray-box {
+  background: #f1f5f9;
+  border-radius: 12rpx;
+}
